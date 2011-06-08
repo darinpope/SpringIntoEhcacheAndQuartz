@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+   <!-- Define the Job Bean that will be executed. Our bean is named in the jobClass property. -->
+    <bean name="myJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.planetpope.quartz.MyJob"/>
+    </bean>
+    
+    <!-- Associate the Job Bean with a Trigger. Triggers define when a job is executed. -->
+    <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <!-- see the example of method invoking job above -->
+        <property name="jobDetail" ref="myJob"/>
+        <property name="startDelay" value="2000"/>
+        <property name="repeatInterval" value="10000"/>
+    </bean>
+    
+    <!-- A list of Triggers to be scheduled and executed by Quartz -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="simpleTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

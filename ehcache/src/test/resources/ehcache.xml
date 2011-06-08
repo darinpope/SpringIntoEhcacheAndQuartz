@@ -1,0 +1,74 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd" 
+	updateCheck="false" monitoring="autodetect" dynamicConfig="true" name="SearchAPICache">
+  <diskStore path="java.io.tmpdir"/> 
+
+  <defaultCache maxElementsInMemory="10000" 
+                eternal="false" 
+                timeToIdleSeconds="120" 
+                timeToLiveSeconds="120" 
+                overflowToDisk="true" 
+                diskSpoolBufferSizeMB="30" 
+                maxElementsOnDisk="10000000" 
+                diskPersistent="false" 
+                diskExpiryThreadIntervalSeconds="120" 
+                memoryStoreEvictionPolicy="LRU" />
+ <!-- 
+    Sample Terracotta clustered cache named sampleTerracottaCache.
+    This cache uses Terracotta to cluster the contents of the cache.
+  --> 
+  
+    <cache name="Person"
+  		maxElementsInMemory="100" 
+		eternal="true" 
+       	maxElementsOnDisk="1000" 
+		memoryStoreEvictionPolicy="LFU">
+		<!-- <terracotta/> -->
+	</cache> 
+	
+  	<cache name="Address"
+  		maxElementsInMemory="100" 
+		eternal="true" 
+       	maxElementsOnDisk="1000" 
+		memoryStoreEvictionPolicy="LFU">
+	</cache> 
+	
+	<cache name="Category"
+		maxElementsInMemory="1000" 
+		eternal="true" 
+       	maxElementsOnDisk="1000" 
+		memoryStoreEvictionPolicy="LFU">
+	</cache> 
+	
+	<cache name="Customer"
+		maxElementsInMemory="10000" 
+		eternal="true" 
+		maxElementsOnDisk="1000000" 
+		memoryStoreEvictionPolicy="LFU">
+		<!--<terracotta storageStrategy="DCV2"/>
+		 <nonstop enabled="true" immediateTimeout="true" timeoutMillis="2000">
+                 <timeoutBehavior type="localReads" />
+           </nonstop>
+		</terracotta>
+		<searchable>
+		  <searchAttribute name="firstName" expression="value.getFirstName().toLowerCase()"/>
+		  <searchAttribute name="lastName" expression="value.getLastName().toLowerCase()"/>
+		  <searchAttribute name="age" expression="value.getAge()"/>
+		  <searchAttribute name="dob" expression="value.getDob()"/>
+		  <searchAttribute name="status" expression="value.getStatus().getName()"/>
+          <searchAttribute name="defaultAddress" expression="value.getCustomerAddress().getDefaultInd()"/>
+          <searchAttribute name="addressCategory" expression="value.getCustomerAddress().getCategory().getName()"/>
+          <searchAttribute name="city" expression="value.getCustomerAddress().getAddress().getCity()"/>
+          <searchAttribute name="state" expression="value.getCustomerAddress().getAddress().getState()"/>
+          <searchAttribute name="zip" expression="value.getCustomerAddress().getAddress().getZip()"/>
+        </searchable>-->
+	</cache> 
+	
+	<cache name="Status"
+		maxElementsInMemory="100" 
+		eternal="true" 
+       	maxElementsOnDisk="1000" 
+		memoryStoreEvictionPolicy="LFU">
+	</cache> 
+	
+	<!-- <terracottaConfig url="${serverAndPort}"/> -->
+</ehcache>

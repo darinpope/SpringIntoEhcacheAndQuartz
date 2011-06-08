@@ -1,1 +1,15 @@
 target/
+.gradle/
+*.iml
+*.ipr
+*.iws
+.idea/
+local.properties
+.settings
+.metadata
+Servers
+bin
+.springBeans
+build
+dist
+private
