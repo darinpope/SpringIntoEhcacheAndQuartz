@@ -10,7 +10,7 @@ import com.planetpope.ehcache.model.Person;
 @Repository("baseDao")
 public class PersonDaoImpl implements BaseDao {
 	
-	private static final Logger LOGGER = Logger.getLogger(PersonDaoImpl.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(PersonDaoImpl.class);
 	private static int cacheMisses = 0;
 
 	@Cacheable("Person")
