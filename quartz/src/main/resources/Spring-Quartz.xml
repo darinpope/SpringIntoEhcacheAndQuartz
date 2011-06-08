@@ -9,7 +9,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
     </bean>
     
     <!-- Associate the Job Bean with a Trigger. Triggers define when a job is executed. -->
-    <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+    <bean id="simpleMyJobTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
         <!-- see the example of method invoking job above -->
         <property name="jobDetail" ref="myJob"/>
         <property name="startDelay" value="2000"/>
@@ -20,7 +20,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>
-                <ref bean="simpleTrigger"/>
+                <ref bean="simpleMyJobTrigger"/>
             </list>
         </property>
     </bean>
