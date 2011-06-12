@@ -7,7 +7,7 @@ mainClassName = "com.planetpope.ehcache.TestStandalone"
 
 repositories {
   mavenCentral()
-  mavenRepo urls: ["http://maven.springframework.org/milestone"]
+  mavenRepo urls: ["http://www.terracotta.org/download/reflector/releases", "http://www.terracotta.org/download/reflector/snapshots","http://maven.springframework.org/milestone"]
 }
 
 dependencies {
