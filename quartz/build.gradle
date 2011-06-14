@@ -7,10 +7,14 @@ mainClassName = 'com.planetpope.quartz.RunJob'
 
 repositories {
   mavenCentral()
+  mavenRepo urls: ["http://www.terracotta.org/download/reflector/releases", "http://www.terracotta.org/download/reflector/snapshots","http://maven.springframework.org/milestone"]
 }
 
 dependencies {
-  compile group: 'org.springframework', name: 'spring', version: '2.5.6'
+  compile group: 'org.springframework', name: 'spring-core', version: '3.1.0.M2'
+  compile group: 'org.springframework', name: 'spring-context', version: '3.1.0.M2'
+  compile group: 'org.springframework', name: 'spring-context-support', version: '3.1.0.M2'
+  runtime group: 'org.springframework', name: 'spring-tx', version: '3.1.0.M2'
   compile group: 'org.quartz-scheduler', name: 'quartz', version: '1.8.5'
   compile group: 'commons-collections', name: 'commons-collections', version: '3.2.1'
 }
