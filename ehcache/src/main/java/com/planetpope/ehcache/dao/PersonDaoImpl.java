@@ -13,7 +13,7 @@ public class PersonDaoImpl implements BaseDao {
 	private static final Logger LOGGER = Logger.getLogger(PersonDaoImpl.class);
 	private static int cacheMisses = 0;
 
-	@Cacheable("Person")
+	@Cacheable(value="Person",key="#key")
 	public final Person getObject(String key) {		
 		cacheMisses++;
 		
@@ -45,7 +45,7 @@ public class PersonDaoImpl implements BaseDao {
 		LOGGER.debug("Person cache evicted....");	
 	}
 	
-	@CacheEvict(value="Person", key="")
+	@CacheEvict(value="Person", key="#key")
 	public void clearObject(String key) {
 		LOGGER.debug("Person cache evicted....");	
 	}
