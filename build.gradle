@@ -1,6 +1,20 @@
-apply plugin: 'java'
-
-dependencies {
-  compile project(':ehcache')
-  compile project(':quartz')
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'idea'
+	apply plugin: 'eclipse'
+	apply plugin: 'application'
+	
+	springVersion = "3.1.0.RELEASE"
+	
+	repositories {
+	  mavenLocal()
+	  mavenCentral()
+	  maven {
+	     url "http://www.terracotta.org/download/reflector/releases"
+	  }
+	}
+	
+	task wrapper(type: Wrapper) {
+	    gradleVersion = '1.0-milestone-6'
+	}
 }

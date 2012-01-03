@@ -1,22 +1,14 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-apply plugin: 'application'
+ehcacheVersion = "2.5.0"
 
 mainClassName = "com.planetpope.ehcache.TestStandalone"
 
-repositories {
-  mavenCentral()
-  mavenRepo urls: ["http://www.terracotta.org/download/reflector/releases", "http://www.terracotta.org/download/reflector/snapshots","http://maven.springframework.org/milestone"]
-}
-
 dependencies {
-  compile group: 'org.springframework', name: 'spring-core', version: '3.1.0.M2'
-  compile group: 'org.springframework', name: 'spring-context', version: '3.1.0.M2'
-  compile group: 'net.sf.ehcache', name: 'ehcache-core', version: '2.4.2'
-  compile group: 'log4j', name: 'log4j', version: '1.2.16'
-  runtime group: 'org.slf4j', name: 'slf4j-api', version: '1.6.1'
-  runtime group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.6.1'
-  testCompile group: 'org.springframework', name: 'spring-test', version: '3.1.0.M2'
-  testCompile group: 'junit', name: 'junit', version: '4.8.2'
+  compile "org.springframework:spring-core:$springVersion"
+  compile "org.springframework:spring-context:$springVersion"
+  compile "net.sf.ehcache:ehcache-core:$ehcacheVersion"
+  compile "log4j:log4j:1.2.16"
+  runtime "org.slf4j:slf4j-api:1.6.1"
+  runtime "org.slf4j:slf4j-jdk14:1.6.1"
+  testCompile "org.springframework:spring-test:$springVersion"
+  testCompile "junit:junit:4.10"
 }
