@@ -13,3 +13,5 @@ bin
 build
 dist
 private
+.classpath
+.project
